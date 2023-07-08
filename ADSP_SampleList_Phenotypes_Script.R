@@ -38,23 +38,19 @@ ibd_pair_rec_file = "data/gcad.r4.wgs.36361.2023.06.06.pairwise_IBD.summary.xlsx
 
 
 # Case/Control phenotypes
-d.cc= read.table(cc_pheno_file, header=T, as.is=T,sep="\t",stringsAsFactors=FALSE,comment="",quote="")
+d.cc= read.table(cc_pheno_file, header=T, as.is=T,sep=",",stringsAsFactors=FALSE,comment="",quote="")
 
 
 # Family study phenotypes
-d.fs= read.table(fam_pheno_file, header=T, as.is=T,sep="\t",stringsAsFactors=FALSE,comment="",quote="")
+d.fs= read.table(fam_pheno_file, header=T, as.is=T,sep=",",stringsAsFactors=FALSE,comment="",quote="")
 
 
 # ADNI phenotypes
-d.adni= read.table(adni_pheno_file, header=T, as.is=T,sep="\t",stringsAsFactors=FALSE,comment="",quote="")
-
-
-# PSP/CBD phenotypes
-d.pspcbd= read.table(psp_cbd_pheno_file, header=T, as.is=T,sep="\t",stringsAsFactors=FALSE,comment="",quote="")
+d.adni= read.table(adni_pheno_file, header=T, as.is=T,sep=",",stringsAsFactors=FALSE,comment="",quote="")
 
 
 # sample to subject mapping
-sample.manifest = read.table(sample_manifest_file, header=T, as.is=T,sep="\t",stringsAsFactors=FALSE,comment="",quote="")
+sample.manifest = read.table(sample_manifest_file, header=T, as.is=T,sep=",",stringsAsFactors=FALSE,comment="",quote="")
 
 
 # IBD pairs and recommended keep/drop list (for genetically unique samples)
