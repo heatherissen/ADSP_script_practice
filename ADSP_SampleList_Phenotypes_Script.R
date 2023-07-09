@@ -166,6 +166,6 @@ sample_pheno_merge = merge(x =sample.manifest.wgs.rec, y = pheno_combine, by = "
 
 sample_pheno_output = sample_pheno_merge[, c("SampleID", "SUBJID", "Cohort", "BODY_SITE", "ANALYTE_TYPE", "Sequencing_Center", "Sequencing_Platform", "SAMPLE_USE", "Technical_Replicate", "Study_DSS", "Sample_Set", "Sex", "Age_harmonized", "Age_baseline", "APOE_reported", "APOE_WGS", "Braak", "Race", "Ethnicity", "DX_harmonized", "other_diagnosis_flag", "Comments", "Flag")]
 
-write.table(sample_pheno_output, file="ADSP_36k_samples_pheno_output.txt", row.names = FALSE, sep=",", quote=FALSE)
+write.table(sample_pheno_output, file="ADSP_36k_samples_pheno_output.csv", row.names = FALSE, sep=",", quote=FALSE)
 
 
