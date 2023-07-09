@@ -22,7 +22,6 @@ library(stringr)
 cc_pheno_file = "data/ADSPCaseControlPhenotypes_DS_2022.08.18.v2_ALL.csv"
 fam_pheno_file = "data/ADSPFamilyBasedPhenotypes_DS_2022.08.18.v2_ALL.csv"
 adni_pheno_file = "data/ADNIPhenotypes_DS_2022.08.18.v2_ALL.csv"
-psp_cbd_pheno_file = "data/PSPCBDPhenotypes_DS_2022.08.18.v2_ALL.csv"
 
 sample_manifest_file = "data/SampleManifest_DS_2022.08.18.v2_ALL.csv"
 #sample_qc_file = "data/gcad.qc.r4.wgs.allchr.36361.GATK.2022.08.15.v2.biallelic.sample.summary.ALL.txt"
@@ -69,9 +68,9 @@ ibd_keep_drop = read_excel(ibd_pair_rec_file, sheet="R4WGS_recommendation_list",
   #For adni subjects, the subject was classified as MCI
 
 # Case/Control
-d.cc$AGE_harmonized = NA
+d.cc$Age_harmonized = NA
 d.cc$DX_harmonized  = d.cc$AD
-d.cc$AGE_harmonized = d.cc$Age
+d.cc$Age_harmonized = d.cc$Age
 d.cc$other_diagnosis_flag = 0
 
 d.cc$other_diagnosis_flag[str_detect(d.cc$Comments,"Diagnosis: ")]=1
@@ -80,9 +79,9 @@ d.cc$FamID = NA
 
 
 # Family
-d.fs$AGE_harmonized = NA
+d.fs$Age_harmonized = NA
 d.fs$DX_harmonized  = NA
-d.fs$AGE_harmonized = d.fs$Age
+d.fs$Age_harmonized = d.fs$Age
 d.fs$other_diagnosis_flag = 0
 
 d.fs$DX_harmonized[which(d.fs$AD%in%1:3)]=1 # AD
@@ -93,15 +92,15 @@ d.fs$other_diagnosis_flag[which(d.fs$AD==5)]=1
 
 
 # ADNI
-d.adni$AGE_harmonized = NA
+d.adni$Age_harmonized = NA
 d.adni$DX_harmonized  = NA
 d.adni$other_diagnosis_flag = 0
 
 d.adni$DX_harmonized[which(d.adni$AD_last_visit == 1 & d.adni$MCI_last_visit == 0)]=1 # AD
 d.adni$DX_harmonized[which(d.adni$AD_last_visit == 0 & d.adni$MCI_last_visit == 0)]=0 # Control
 
-d.adni$AGE_harmonized[which(d.adni$DX_harmonized==1)] = d.adni$Age_AD_onset[which(d.adni$DX_harmonized==1)] # Age for case: age at onset
-d.adni$AGE_harmonized[which(d.adni$DX_harmonized==0)] = d.adni$Age_current[which(d.adni $DX_harmonized==0)] # Age for controls: current age
+d.adni$Age_harmonized[which(d.adni$DX_harmonized==1)] = d.adni$Age_AD_onset[which(d.adni$DX_harmonized==1)] # Age for case: age at onset
+d.adni$Age_harmonized[which(d.adni$DX_harmonized==0)] = d.adni$Age_current[which(d.adni $DX_harmonized==0)] # Age for controls: current age
 
 d.adni$other_diagnosis_flag[which(d.adni$AD_last_visit == 0 & d.adni$MCI_last_visit == 1)]=1 #MCI
 
@@ -165,8 +164,8 @@ sample_pheno_merge = merge(x =sample.manifest.wgs.rec, y = pheno_combine, by = "
 ####################
 # 6. Choose output columns and write final table to file
 
-sample_pheno_output = sample_pheno_merge[, c("SampleID", "SUBJID", "Cohort", "BODY_SITE", "ANALYTE_TYPE", "Sequencing_Center", "Sequencing_Platform", "SAMPLE_USE", "Technical_Replicate", "Study_DSS", "Sample_Set", "Sex", "AGE_harmonized", "Age_baseline", "APOE_reported", "APOE_WGS", "Braak", "Race", "Ethnicity", "DX_harmonized", "other_diagnosis_flag", "Comments", "Flag")]
+sample_pheno_output = sample_pheno_merge[, c("SampleID", "SUBJID", "Cohort", "BODY_SITE", "ANALYTE_TYPE", "Sequencing_Center", "Sequencing_Platform", "SAMPLE_USE", "Technical_Replicate", "Study_DSS", "Sample_Set", "Sex", "Age_harmonized", "Age_baseline", "APOE_reported", "APOE_WGS", "Braak", "Race", "Ethnicity", "DX_harmonized", "other_diagnosis_flag", "Comments", "Flag")]
 
-write.table(sample_pheno_output, file="ADSP_36k_samples_pheno_output.txt", row.names = FALSE, sep="\t", quote=FALSE)
+write.table(sample_pheno_output, file="ADSP_36k_samples_pheno_output.txt", row.names = FALSE, sep=",", quote=FALSE)
 
 
