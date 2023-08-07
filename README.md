@@ -1,4 +1,4 @@
-# <ADD TITLE OF OVERALL SCRIPT> 
+# ADD TITLE OF OVERALL SCRIPT
 
 The purpose of this script is to provide users with a starting point for combining and using sample and phenotype information for a genetically unique list of whole genome samples. The script uses released phenotype files (case-control, family-based, and ADNI), the Sample Manifest file, and Pairwise IBD Summary file. The PSP phenotype file is not used by default because the PSP samples are not included in the 36k WGS recommended analysis list. These files will be combined into one output file that will contain a list of genetically unique samples with sample and phenotype information for each sampleID.  
 
@@ -59,4 +59,4 @@ other_diagnosis_flag: A flag indicating if the participant has a specified diagn
 Comments: Additional notes about AD status conversions, updates, corrections (includes version when comment was made) 
 Flag: Additional flag that identifies important considerations for using subject phenotypes 
  
-These output variables provide a comprehensive set of information that can be used for case/control analysis and further investigations in Alzheimer's disease research. More details on these variables and their values can be found in the Data Dictionary for the output file <ADD FINAL NAME OF OUTPUT FILE> 
+These output variables provide a comprehensive set of information that can be used for case/control analysis and further investigations in Alzheimer's disease research. More details on these variables and their values can be found in the Data Dictionary for the output file ADD FINAL NAME OF OUTPUT FILE
