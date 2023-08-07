@@ -1,6 +1,6 @@
-# ADD TITLE OF OVERALL SCRIPT
+# Generate an Integrated Phenotype File for an ADSP Case/Control Analysis
 
-The purpose of this script is to provide users with a starting point for combining and using sample and phenotype information for a genetically unique list of whole genome samples. The script uses released phenotype files (case-control, family-based, and ADNI), the Sample Manifest file, and Pairwise IBD Summary file. The PSP phenotype file is not used by default because the PSP samples are not included in the 36k WGS recommended analysis list. These files will be combined into one output file that will contain a list of genetically unique samples with sample and phenotype information for each sampleID.  
+The purpose of this script is to provide approved users of the Alzheimer’s Disease Sequencing Project (ADSP) dataset (ng00067) with a starting point for combining and using sample and phenotype information to generate a genetically unique list of whole genome samples to use in an Alzheimer’s Disease case/control analysis. The script uses phenotype files (case-control, family-based, and ADNI), the Sample Manifest file, and Pairwise IBD Summary file, all released within the ADSP dataset (ng00067). The PSP phenotype file is not used by default because the PSP samples are not included in the 36k WGS recommended analysis list. These files will be combined into one output file that will contain a list of genetically unique samples with sample and phenotype information for each sampleID. 
 
  
 ## Setup Instructions 
@@ -9,10 +9,10 @@ Before running the script, please ensure that you have downloaded the following 
 
 Additionally, specify the file names and locations for each of the phenotype files. The default code assumes that the files are stored in a folder named "data" within the same directory as this script. Adjust the file paths accordingly if your files are located in a different directory.  
 
-The default file list uses the “ALL” consent files. If you do not have access to these files (if you are not approved for all consent levels), then please combine your consent-level files for each file type into one and use that in place of the “ALL” files below. 
+The default file list uses the “ALL” consent files. If you do not have access to these files (if you are not approved for all consent levels), then please combine your individual consent-level files for each file type into one and use that in place of the “ALL” files below. 
 
 
-The default file list that will be utilized is: 
+The default file list that will be utilized is (released in ng00067.v10): 
 
 data/ADSPCaseControlPhenotypes_DS_2022.08.18.v2_ALL.csv 
 
@@ -84,7 +84,7 @@ Age_baseline: The participant's age when first examined/entered ADSP study
 
 APOE_reported: The reported APOE genotype of the participant 
 
-APOE_WGS: The APOE genotype derived from whole-genome sequencing (WGS) pVCF data 
+APOE_WGS: The APOE genotype derived from whole-genome sequencing (WGS) data 
 
 Braak: The Braak stage from autopsy 
 
