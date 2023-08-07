@@ -19,7 +19,7 @@ data/gcad.r4.wgs.36361.2023.06.06.pairwise_IBD.summary.xlsx
 
 ## Script Execution Steps 
 
-The script performs the following steps: 
+The script performs the following steps:
 Reads the phenotype files (case/control, family-based, and ADNI), the sample to subject mapping file (Sample Manifest), and the IBD Summary R4 Recommendation list into tables. 
 Harmonizes the phenotypes across all files. Adds the following harmonized phenotype values to each set of phenotypes: 
 	DX_harmonized (Diangosis): 0=Control, 1=AD Case 
