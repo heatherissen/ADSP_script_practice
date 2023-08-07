@@ -22,7 +22,7 @@ data/gcad.r4.wgs.36361.2023.06.06.pairwise_IBD.summary.xlsx
 The script performs the following steps: 
 -Reads the phenotype files (case/control, family-based, and ADNI), the sample to subject mapping file (Sample Manifest), and the IBD Summary R4 Recommendation list into tables. 
 -Harmonizes the phenotypes across all files. Adds the following harmonized phenotype values to each set of phenotypes: 
-  -DX_harmonized (Diangosis): 0=Control, 1=AD Case 
+		-DX_harmonized (Diangosis): 0=Control, 1=AD Case 
   -Age_harmonized: AD cases use onset age and controls use age at last visit 
   -other_diagnosis_flag: 0/1 (True/False) indicates if a subject has an "other diagnosis" (if the subject is not considered a case or control but does have a diagnosis). For case/control or     family-based subjects, there will be a comment in the Comments field with more details on diagnosis. For adni subjects, the subject was classified as MCI. 
 -Drops the phenotype replicates present in both the case/control and family-based studies, keeping only the family-based samples. 
