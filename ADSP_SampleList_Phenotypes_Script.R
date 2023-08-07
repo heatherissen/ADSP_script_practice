@@ -1,6 +1,6 @@
 
 # This script is designed to provide users with an output file containing a list of genetically unique samples with harmonzied phenotypes for each sample.
-# By default, the script will use the most current list of released files (ng00067.v10), filter the sample list
+# By default, the script will use the most current list of released ADSP WGS files (ng00067.v10), filter the sample list
 #to include the recommended list of genetically unique samples in the WGS 36k, and pull phenotype values for each sample.
 # Please read the setup instructions below and then run the script:
 
@@ -16,7 +16,7 @@ library(stringr)
 
 
 # Please include the file names and locations for each of the files below
-# Default code uses the most recent files for the 36k (ng00067.v10). It also uses the ALL consent version of each file. If you are not approved for all consents, merge the each by-consent file for for each file type and replace the file names below with your merged file.
+# Default code uses the most recent files for the 36k (ng00067.v10). It also uses the ALL consent version of each file. If you are not approved for all consents, merge the by-consent files for for each file type and replace the file names below with your merged file.
 # To use the defaults, place each file in a folder called "data" in the same directory as this script and set working directory to source file location
 
 cc_pheno_file = "data/ADSPCaseControlPhenotypes_DS_2022.08.18.v2_ALL.csv"
@@ -24,7 +24,6 @@ fam_pheno_file = "data/ADSPFamilyBasedPhenotypes_DS_2022.08.18.v2_ALL.csv"
 adni_pheno_file = "data/ADNIPhenotypes_DS_2022.08.18.v2_ALL.csv"
 
 sample_manifest_file = "data/SampleManifest_DS_2022.08.18.v2_ALL.csv"
-#sample_qc_file = "data/gcad.qc.r4.wgs.allchr.36361.GATK.2022.08.15.v2.biallelic.sample.summary.ALL.txt"
 
 ibd_pair_rec_file = "data/gcad.r4.wgs.36361.2023.06.06.pairwise_IBD.summary.xlsx"
 
@@ -37,19 +36,19 @@ ibd_pair_rec_file = "data/gcad.r4.wgs.36361.2023.06.06.pairwise_IBD.summary.xlsx
 
 
 # Case/Control phenotypes
-d.cc= read.table(cc_pheno_file, header=T, as.is=T,sep=",",stringsAsFactors=FALSE,comment="",quote="")
+d.cc= read.csv(cc_pheno_file, header=T, as.is=T, sep=",", stringsAsFactors=FALSE)
 
 
 # Family study phenotypes
-d.fs= read.table(fam_pheno_file, header=T, as.is=T,sep=",",stringsAsFactors=FALSE,comment="",quote="")
+d.fs= read.csv(fam_pheno_file, header=T, as.is=T, sep=",", stringsAsFactors=FALSE)
 
 
 # ADNI phenotypes
-d.adni= read.table(adni_pheno_file, header=T, as.is=T,sep=",",stringsAsFactors=FALSE,comment="",quote="")
+d.adni= read.csv(adni_pheno_file, header=T, as.is=T,sep=",",stringsAsFactors=FALSE)
 
 
 # sample to subject mapping
-sample.manifest = read.table(sample_manifest_file, header=T, as.is=T,sep=",",stringsAsFactors=FALSE,comment="",quote="")
+sample.manifest = read.csv(sample_manifest_file, header=T, as.is=T,sep=",",stringsAsFactors=FALSE)
 
 
 # IBD pairs and recommended keep/drop list (for genetically unique samples)
@@ -166,6 +165,7 @@ sample_pheno_merge = merge(x =sample.manifest.wgs.rec, y = pheno_combine, by = "
 
 sample_pheno_output = sample_pheno_merge[, c("SampleID", "SUBJID", "Cohort", "BODY_SITE", "ANALYTE_TYPE", "Sequencing_Center", "Sequencing_Platform", "SAMPLE_USE", "Technical_Replicate", "Study_DSS", "Sample_Set", "Sex", "Age_harmonized", "Age_baseline", "APOE_reported", "APOE_WGS", "Braak", "Race", "Ethnicity", "DX_harmonized", "other_diagnosis_flag", "Comments", "Flag")]
 
-write.table(sample_pheno_output, file="ADSP_36k_samples_pheno_output.csv", row.names = FALSE, sep=",", quote=FALSE)
+write.csv(sample_pheno_output, file="ADSP_36k_samples_pheno_output.csv", row.names = FALSE)
+
 
 
