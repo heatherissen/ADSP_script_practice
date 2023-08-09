@@ -162,10 +162,11 @@ sample_pheno_merge = merge(x =sample.manifest.wgs.rec, y = pheno_combine, by = "
 
 ####################
 # 6. Choose output columns and write final table to file
+# For definitions of each variable, please see the data dictionary for the output file "ADSPIntegratedPhenotypes_DD_2023.08.08.xlsx"
 
 sample_pheno_output = sample_pheno_merge[, c("SampleID", "SUBJID", "Cohort", "BODY_SITE", "ANALYTE_TYPE", "Sequencing_Center", "Sequencing_Platform", "SAMPLE_USE", "Technical_Replicate", "Study_DSS", "Sample_Set", "Sex", "Age_harmonized", "Age_baseline", "APOE_reported", "APOE_WGS", "Braak", "Race", "Ethnicity", "DX_harmonized", "other_diagnosis_flag", "Comments", "Flag")]
 
-write.csv(sample_pheno_output, file="ADSP_36k_samples_pheno_output.csv", row.names = FALSE)
+write.csv(sample_pheno_output, file="ADSPIntegratedPhenotypes_DS_2023.08.08.csv", row.names = FALSE)
 
 
 
