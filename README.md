@@ -52,7 +52,7 @@ Combines the sample and phenotype information into a single table, including har
 Selects the desired output columns and writes the final table to a file named "ADSP_36k_samples_pheno_output.csv" in comma-separated values (CSV) format. 
 
  
-## Variables in Output File 
+## Variables in Output File (ADSPIntegratedPhenotypes_DS_2023.08.08.csv)
 
 SampleID: ADSP Sample ID - the unique identifier assigned to each sample in the dataset 
 
@@ -101,4 +101,4 @@ Comments: Additional notes about AD status conversions, updates, corrections (in
 Flag: Additional flag that identifies important considerations for using subject phenotypes 
 
  
-These output variables provide a comprehensive set of information that can be used for case/control analysis and further investigations in Alzheimer's disease research. More details on these variables and their values can be found in the Data Dictionary for the output file ADD FINAL NAME OF OUTPUT FILE
+These output variables provide a comprehensive set of information that can be used for case/control analysis and further investigations in Alzheimer's disease research. More details on these variables and their values can be found in the Data Dictionary for the output file ADSPIntegratedPhenotypes_DD_2023.08.08.xlsx
